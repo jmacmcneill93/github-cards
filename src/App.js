@@ -12,18 +12,18 @@ class Form extends React.Component {
       // console.log('submitted');
       // console.log(this.userNameInput.current.value);
       // console.log(resp.data);
-    } catch (error){
+    } catch (error) {
       console.error(error);
       console.log('Houston we have a problem!');
     }
   }
-  render(){
-    return(
+  render() {
+    return (
       <form onSubmit={this.handleSubmit}>
-        <input type="text" 
-        placeholder="Github username" 
-        ref={this.userNameInput} 
-        required/>
+        <input type="text"
+          placeholder="Github username"
+          ref={this.userNameInput}
+          required />
         <button>Add card</button>
       </form>
     );
@@ -31,11 +31,11 @@ class Form extends React.Component {
 }
 const CardList = (props) => (
   <div>
-    {props.profiles.map(profile => <Card key={profile.id} {...profile}/>)}
+    {props.profiles.map(profile => <Card key={profile.id} {...profile} />)}
   </div>
 )
 class Card extends React.Component {
-  render(){
+  render() {
     const profile = this.props;
     return (
       <div className="github-profile">
@@ -49,24 +49,25 @@ class Card extends React.Component {
   }
 }
 class App extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-      this.state = {
-        profiles: []
-      };
-  }  
+    this.state = {
+      profiles: []
+    };
+  }
   addNewProfileData = (profileData) => {
-    this.setState(prevState => ({profiles: [...prevState.profiles, profileData],
+    this.setState(prevState => ({
+      profiles: [...prevState.profiles, profileData],
     }));
     console.log('App', profileData);
   }
-  render(){
+  render() {
     return (
-    <div>
-      <div className="header">{this.props.title}</div>
-      <Form onSubmit={this.addNewProfileData} />
-      <CardList profiles={this.state.profiles} />
-    </div>
+      <div>
+        <div className="header">{this.props.title}</div>
+        <Form onSubmit={this.addNewProfileData} />
+        <CardList profiles={this.state.profiles} />
+      </div>
     )
   }
 }

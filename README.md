@@ -1,3 +1,9 @@
+Github Card Application
+
+This application was created with ReactJS and allows you to type in any Github username and add there card name to the page.
+
+This project was made during the Road To Hire Program.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
